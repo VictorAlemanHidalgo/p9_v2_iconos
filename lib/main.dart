@@ -34,12 +34,20 @@ class MisIconos extends StatelessWidget {
                 mainAxisAlignment:
                     MainAxisAlignment.center, // Centra los iconos en la fila
                 children: <Widget>[
-                  IconWithLabel(icon: Icons.star, label: 'Estrella'),
-                  SizedBox(width: 20.0), // Espacio entre los iconos
-                  IconWithLabel(icon: Icons.favorite, label: 'Favorito'),
+                  IconWithLabel(
+                      icon: Icons.star,
+                      label: 'Estrella',
+                      color: Colors.yellow),
                   SizedBox(width: 20.0), // Espacio entre los iconos
                   IconWithLabel(
-                      icon: Icons.access_alarm_rounded, label: 'Reloj'),
+                      icon: Icons.favorite,
+                      label: 'Favorito',
+                      color: Colors.red),
+                  SizedBox(width: 20.0), // Espacio entre los iconos
+                  IconWithLabel(
+                      icon: Icons.access_alarm_rounded,
+                      label: 'Reloj',
+                      color: Colors.blue),
                 ],
               ),
               SizedBox(height: 20.0), // Espacio entre las filas
@@ -48,14 +56,20 @@ class MisIconos extends StatelessWidget {
                 mainAxisAlignment:
                     MainAxisAlignment.center, // Centra los iconos en la fila
                 children: <Widget>[
-                  IconWithLabel(icon: Icons.add_a_photo, label: 'Camara'),
+                  IconWithLabel2(
+                      icon: Icons.add_a_photo,
+                      label: 'Camara',
+                      color: Colors.purple),
                   SizedBox(width: 20.0), // Espacio entre los iconos
-                  IconWithLabel(
+                  IconWithLabel2(
                       icon: Icons.airline_seat_recline_normal,
-                      label: 'Asiento'),
+                      label: 'Asiento',
+                      color: Colors.green),
                   SizedBox(width: 20.0), // Espacio entre los iconos
-                  IconWithLabel(
-                      icon: Icons.youtube_searched_for, label: 'Buscador'),
+                  IconWithLabel2(
+                      icon: Icons.youtube_searched_for,
+                      label: 'Buscador',
+                      color: Colors.orange),
                 ],
               ),
               SizedBox(height: 20.0), // Espacio entre las filas
@@ -64,11 +78,20 @@ class MisIconos extends StatelessWidget {
                 mainAxisAlignment:
                     MainAxisAlignment.center, // Centra los iconos en la fila
                 children: <Widget>[
-                  IconWithLabel(icon: Icons.account_circle, label: 'Usuario'),
+                  IconWithLabel(
+                      icon: Icons.account_circle,
+                      label: 'Usuario',
+                      color: Colors.teal),
                   SizedBox(width: 20.0), // Espacio entre los iconos
-                  IconWithLabel(icon: Icons.tab_outlined, label: 'Ventana'),
+                  IconWithLabel(
+                      icon: Icons.tab_outlined,
+                      label: 'Ventana',
+                      color: Colors.indigo),
                   SizedBox(width: 20.0), // Espacio entre los iconos
-                  IconWithLabel(icon: Icons.backpack, label: 'Mochila'),
+                  IconWithLabel(
+                      icon: Icons.backpack,
+                      label: 'Mochila',
+                      color: Colors.brown),
                 ],
               ),
             ],
@@ -83,14 +106,37 @@ class MisIconos extends StatelessWidget {
 class IconWithLabel extends StatelessWidget {
   final IconData icon;
   final String label;
+  final Color color;
 
-  const IconWithLabel({required this.icon, required this.label});
+  const IconWithLabel(
+      {required this.icon, required this.label, required this.color});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Icon(icon, size: 50.0, color: Colors.pink), // Icono
+        Icon(icon, size: 50.0, color: color), // Icono con color personalizado
+        const SizedBox(height: 8.0), // Espacio entre el icono y el texto
+        Text(label, style: const TextStyle(fontSize: 16.0)), // Subtítulo
+      ],
+    );
+  }
+}
+
+// Widget personalizado para un icono con subtítulo
+class IconWithLabel2 extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final Color color;
+
+  const IconWithLabel2(
+      {required this.icon, required this.label, required this.color});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Icon(icon, size: 50.0, color: color), // Icono con color personalizado
         const SizedBox(height: 8.0), // Espacio entre el icono y el texto
         Text(label, style: const TextStyle(fontSize: 16.0)), // Subtítulo
       ],
